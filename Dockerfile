@@ -36,8 +36,10 @@ WORKDIR /
 #Build libreoffice
 WORKDIR /CannyOS/Host
 RUN zypper remove -y krb5-mini
+RUN zypper -n install java-1_7_0-openjdk-devel
+RUN zypper -n install krb5-devel
 RUN zypper -n si -d libreoffice
-RUN zypper -n install python3-devel
+RUN zypper -n install git libgnomeui-devel gawk junit doxygen python3-devel libreoffice-pyuno
 RUN wget http://download.documentfoundation.org/libreoffice/src/4.2.5/libreoffice-4.2.5.2.tar.xz && \
 	tar xvfJ libreoffice-4.2.5.2.tar.xz && \
 	cd libreoffice* && \
