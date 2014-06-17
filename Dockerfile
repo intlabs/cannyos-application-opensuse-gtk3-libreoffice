@@ -35,6 +35,9 @@ WORKDIR /
 
 #Build libreoffice
 WORKDIR /CannyOS/Host
+RUN zypper ar http://download.opensuse.org/repositories/LibreOffice:/Unstable/openSUSE_13.1/LibreOffice:Unstable.repo
+RUN zypper --gpg-auto-import-keys refresh && \
+	zypper -n update -y
 RUN zypper remove -y krb5-mini
 RUN zypper -n install java-1_7_0-openjdk-devel
 RUN zypper -n install krb5-devel
