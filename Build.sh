@@ -56,7 +56,7 @@ sudo rm -r -f "/CannyOS/build/cannyos-application-opensuse-gtk3-libreoffice/*"
 sudo docker stop cannyos-application-opensuse-gtk3-libreoffice
 
 # Launch built base container image
-sudo docker run -i -t --rm \
+sudo docker run -i -t -d \
  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" \
  --volume "/CannyOS/build/cannyos-application-opensuse-gtk3-libreoffice":"/CannyOS/Host" \
  --name "cannyos-application-opensuse-gtk3-libreoffice" \
